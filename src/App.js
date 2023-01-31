@@ -1,11 +1,13 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { ToDo } from './pages/todo/todo-page'
+import HomePage from './pages/home'
+import LoginPage from './pages/login'
 
 export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ToDo />} exact />
+        <Route path='/' element={<LoginPage />} exact />
+        <Route path='/home' element={<HomePage />} exact/>
       </Routes>
     </BrowserRouter>
   )
