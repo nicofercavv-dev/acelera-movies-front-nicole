@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
 
   .modal {
     background-color: white;
-    max-width: 35%;
+    max-width: 32%;
     max-height: 95%;
     margin: 0 auto;
     padding: 20px 25px;

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { HomeContainer } from './styled'
+import { PageContainer } from './styled'
 import Modal from '../../components/modal/index'
 import { client } from '../../service/client'
 import Note from './components'
 import formatDate from '../../utils/dateFormatter'
+import { useNavigate } from 'react-router'
 
 const HomePage = () => {
+  const navigate = useNavigate()
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -19,21 +21,23 @@ const HomePage = () => {
   }, [])
 
   return (
-    <HomeContainer>
+    <PageContainer>
       <menu>
         <div className='greeting'>
-          <p>Hello, User!</p>
+          <p onClick={() => navigate('/home')}>Hello, User!</p>
         </div>
         <Modal type='createMovie' />
       </menu>
       <main>
-        <h1>All Movies</h1>
+        <div className='cabecalho'>
+          <h1>All Movies</h1>
+        </div>
         <section>
           {data && data.map(movie => {
             return <div className='movie-container' key={movie.id}>
               <img src={movie.image}/>
               <div className='content'>
-                <h2>{movie.title}</h2>
+                <h2 onClick={() => navigate(`/movie/${movie.id}`)}>{movie.title}</h2>
                 <p className='date'>Data: {formatDate(movie.releaseDate)}</p>
                 <h3>Resume:</h3>
                 <p className='resume'>{movie.resume}</p>
@@ -45,7 +49,7 @@ const HomePage = () => {
           })}
         </section>
       </main>
-    </HomeContainer>
+    </PageContainer>
   )
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CreateForm = styled.form`
+const MovieForm = styled.form`
   width: 100%;
   height: 100%;
   display: flex;
@@ -66,10 +66,6 @@ const CreateForm = styled.form`
     color: #FFFFFF;
     font-weight: bold;
   }
-
-  span {
-    color: #FF0000;
-  }
 `
 
-export default CreateForm
+export default MovieForm

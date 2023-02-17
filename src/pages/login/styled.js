@@ -36,7 +36,7 @@ export const LoginContainer = styled.div`
       border: 2px solid #C3CFD9;
       border-radius: 5px;
 
-      &:focus-within {
+      &:hover {
         border: 2px solid #6558F5;
       }
 

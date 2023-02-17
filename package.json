@@ -103,7 +103,9 @@
   },
   "react-dotenv": {
     "whitelist": [
-      "URL_BACKEND"
+      "URL_BACKEND",
+      "EMAIL",
+      "PASSWORD"
     ]
   }
 }

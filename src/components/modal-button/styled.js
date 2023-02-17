@@ -9,5 +9,13 @@ export const AddMovie = styled.a`
 
 export const EditMovie = styled.button`
   background-color: #1AAE9F;
+  border: 1px solid #1AAE9F;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
   cursor: pointer;
+
+  svg {
+    color: #FFFFFF;
+  }
 `

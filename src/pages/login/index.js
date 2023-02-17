@@ -19,8 +19,17 @@ const LoginPage = () => {
       return alert('Invalid login or password!')
     }
 
-    await client.post('/login', { login: login, password: password })
-      .then(res => res.data.auth && navigate('/home'))
+    await client.post('/login', {}, {
+      auth: {
+        username: login,
+        password: password
+      }
+    })
+      .then(res => {
+        if (res.data.auth) {
+          navigate('/home')
+        }
+      })
       .catch(error => alert(error))
   }
 

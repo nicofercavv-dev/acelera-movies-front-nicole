@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { client } from '../../service/client'
 import MovieForm from '../movie-form/styled'
 
-const CreateMovieForm = ({ onClick = x => x }) => {
+const EditMovieForm = ({ id, onClick = x => x }) => {
   const [data, setData] = useState({
     title: '',
     subtitle: '',
@@ -30,13 +30,9 @@ const CreateMovieForm = ({ onClick = x => x }) => {
 
   const handleClick = async (e) => {
     e.preventDefault()
-    if (!data.title || !data.subtitle || !data.resume || !data.gender || !data.releaseDate || !data.image || !data.director || !data.writter || !data.classification || !data.studio || !data.actors || !data.awards || !data.note) {
-      return alert('Preencha todos os campos!')
-    }
-
-    await client.post('/movie', data)
+    await client.put(`/movie/${id}`, data)
       .then(() => {
-        alert('Filme cadastrado com sucesso!')
+        alert('Filme editado com sucesso!')
         return onClick()
       })
       .catch(error => {
@@ -107,9 +103,9 @@ const CreateMovieForm = ({ onClick = x => x }) => {
         <label htmlFor='note'>Stars</label>
         <input type='text' name='note' id='note' onChange={handleChange} />
       </div>
-      <button className='submit' onClick={handleClick}>Create Movie</button>
+      <button className='submit' onClick={handleClick}>Edit Movie</button>
     </MovieForm>
   )
 }
 
-export default CreateMovieForm
+export default EditMovieForm
